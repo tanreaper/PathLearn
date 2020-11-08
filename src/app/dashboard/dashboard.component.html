@@ -2,7 +2,7 @@
     <ng-sidebar-container>
         <ng-sidebar [opened]="opened">
             <p> Sidebar Contents</p>
-            <button (click)="toggleSidebar()">Close Sidebar</button>
+            <button  mdbBtn color="dark" class="waves-light" mdbWavesEffect (click)="toggleSidebar()">Close Sidebar</button>
             <ul class="menu">
                 <li><a routerLink="/Dashboard" (click)="toggleSidebar()"> Dashboard </a></li>
                 <li><a href=""> Accounts </a></li>
@@ -12,7 +12,7 @@
             </ul>
         </ng-sidebar>
         <div ng-sidebar-content>
-            <button (click)="toggleSidebar()">
+            <button mdbBtn color="secondary" class="waves-light" mdbWavesEffect (click)="toggleSidebar()">
                 Open Sidebar
             </button>
             <div class="row">
@@ -100,7 +100,13 @@
         </div>
         <ng-sidebar [opened]="openedRight" position="right">
             <p> Sidebar Contents</p>
-            <button (click)="toggleRightSidebar()">Close Sidebar</button>
+            <button  mdbBtn color="dark" class="waves-light" mdbWavesEffect (click)="toggleRightSidebar()">Close Sidebar</button>
+            <button  mdbBtn color="dark" class="waves-light" mdbWavesEffect (click)="topicModal.show()">Add Topic</button>
+            <ul class="menu">
+                <ng-template ngFor let-topic [ngForOf]="topic" let-i="index">
+                    <li> <a href="#">{{topic}}</a></li>
+                </ng-template>
+            </ul>
         </ng-sidebar>
     </ng-sidebar-container>
     <div mdbModal #frame="mdbModal" class="modal fade left" id="frameModalTop" tabindex="-1" role="dialog"
@@ -141,3 +147,41 @@
             </div>
         </div>
     </div>
+    <div mdbModal #topicModal="mdbModal" class="modal fade left" id="frameModalTop" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Add Topic</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="topicModal.hide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body mx-3">
+                <form class="text-center" action="#!" #topicForm="ngForm" (ngSubmit)="onSubmitTopic(topicForm)">
+                    <div class="row">
+                        <div class="fas fa-book fa-2x"></div>
+
+                        <div class="col-11">
+                            <input type="text" id="defaultRegisterFormEmail" class="form-control mb-4"
+                                placeholder="Topic 1" ngModel name="topic1">
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="fas fa-book fa-2x"></div>
+
+                        <div class="col-11">
+                            <input type="text" id="defaultRegisterFormEmail" class="form-control mb-4"
+                                placeholder="Topic 2" ngModel name="topic2">
+                        </div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center">
+                        <button mdbBtn color="default" class="waves-light" mdbWavesEffect
+                            (click)="topicModal.hide()">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

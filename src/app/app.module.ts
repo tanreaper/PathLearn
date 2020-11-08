@@ -12,6 +12,8 @@ import { LoadingSpinnerComponent } from './auth/shared/loading-spinner/loading-s
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { SidebarModule } from 'ng-sidebar';
+import { TestComponent } from './test/test.component';
+import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
 
 
 @NgModule({
@@ -20,7 +22,8 @@ import { SidebarModule } from 'ng-sidebar';
     LandingPageComponent,
     AuthComponent,
     LoadingSpinnerComponent,
-    DashboardComponent
+    DashboardComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +32,7 @@ import { SidebarModule } from 'ng-sidebar';
     MDBBootstrapModule.forRoot(),
     HttpClientModule,
     DashboardModule,
+    NgxYoutubePlayerModule.forRoot(),
     SidebarModule.forRoot(),
   ],
   providers: [],

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthComponent } from './auth/auth.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { TestComponent } from './test/test.component';
 // import { TradeAnalysisComponent } from './trade-analysis/trade-analysis.component';
 // import { TestComponent } from './test/test.component';
 // import { LandingPageComponent } from './landing-page/landing-page.component';
@@ -15,7 +16,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 const routes: Routes = [
     { path: '', component: LandingPageComponent },
     { path: 'Register', component: AuthComponent },
-    { path: 'Dashboard', component: DashboardComponent }
+    { path: 'Dashboard', component: DashboardComponent },
+    { path: 'test', component: TestComponent }
   // { path: '', component:  TradeAnalysisComponent },
 //   { path: 'test', component: TestComponent },
 //   { path: '', component: LandingPage2 },

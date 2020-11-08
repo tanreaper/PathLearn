@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
+
 @Component({
     selector: 'app-dashboard',
     templateUrl: './dashboard.component.html',
@@ -14,6 +15,8 @@ export class DashboardComponent {
     course2: any;
     course1Load:boolean = false;
     course2Load:boolean = false;
+    topic: any = [];
+    addTopic: any = [];
 
     toggleSidebar() {
         this.opened = !this.opened
@@ -32,6 +35,12 @@ export class DashboardComponent {
         console.log(this.course1);
         console.log(this.course2);
 
+    }
+    onSubmitTopic(form: NgForm) {
+        console.log(form);
+        this.topic.push(form.value.topic1);
+        this.topic.push(form.value.topic2);
+        console.log(this.topic);
     }
     
 }
