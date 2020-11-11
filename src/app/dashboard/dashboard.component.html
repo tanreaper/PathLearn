@@ -2,7 +2,8 @@
     <ng-sidebar-container>
         <ng-sidebar [opened]="opened">
             <p> Sidebar Contents</p>
-            <button  mdbBtn color="dark" class="waves-light" mdbWavesEffect (click)="toggleSidebar()">Close Sidebar</button>
+            <button mdbBtn color="dark" class="waves-light" mdbWavesEffect (click)="toggleSidebar()">Close
+                Sidebar</button>
             <ul class="menu">
                 <li><a routerLink="/Dashboard" (click)="toggleSidebar()"> Dashboard </a></li>
                 <li><a href=""> Accounts </a></li>
@@ -15,96 +16,108 @@
             <button mdbBtn color="secondary" class="waves-light" mdbWavesEffect (click)="toggleSidebar()">
                 Open Sidebar
             </button>
-            <div class="row">
-                <div class="col-3">
+            <ng-container *ngIf="!isDashboard">
+                <div class="button-spacing">
+
                 </div>
-                <div class="col-6">
-                    <div class="row">
-                        <div class="col-4 pt-5">
-                            <div class="card-wrapper rounded">
-                                <div id="card-1" class="card card-rotating text-center z-depth-1-half"
-                                    (click)="frame.show()">
-                                    <div class="face front rounded z-depth-3">
-                                        <a class="rotate-btn" data-card="card-1">
-                                            <div class="view overlay zoom rounded">
-                                                <img src="../../assets/img/add2.jpg" class="img-fluid rounded"
-                                                    alt="zoom">
-                                                <!-- <div class="position-absolute w-100" style="bottom:10%;">
+                <div class="content-container">
+                    <router-outlet></router-outlet>
+                </div>
+            </ng-container>
+            <ng-container *ngIf='isDashboard'>
+                <div class="row">
+                    <div class="col-3">
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-4 pt-5">
+                                <div class="card-wrapper rounded">
+                                    <div id="card-1" class="card card-rotating text-center z-depth-1-half"
+                                        (click)="frame.show()">
+                                        <div class="face front rounded z-depth-3">
+                                            <a class="rotate-btn" data-card="card-1">
+                                                <div class="view overlay zoom rounded">
+                                                    <img src="../../assets/img/add2.jpg" class="img-fluid rounded"
+                                                        alt="zoom">
+                                                    <!-- <div class="position-absolute w-100" style="bottom:10%;">
                                                 <p class="h3 white-text text-center rgba-black-strong py-3">Zoom effect
                                                 </p>
                                             </div> -->
-                                                <div class="mask flex-center">
-                                                    <p class="text-muted h1 font-weight-bold">Click!</p>
+                                                    <div class="mask flex-center">
+                                                        <p class="text-muted h1 font-weight-bold">Click!</p>
+                                                    </div>
                                                 </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <ng-container *ngIf="course1Load">
+                                <div class="col-6 pt-5">
+                                    <div class="card-wrapper rounded">
+                                        <div id="card-2" class="card card-rotating text-center z-depth-1-half"
+                                            (click)="toggleRightSidebar()">
+                                            <div class="face front rounded z-depth-3">
+                                                <a class="rotate-btn" data-card="card-1">
+                                                    <div class="view overlay zoom rounded">
+                                                        <img src="../../assets/img/machinelearning.png"
+                                                            class="img-fluid rounded" alt="zoom">
+                                                        <div class="position-absolute w-100" style="bottom:10%;">
+                                                            <p class="h3 white-text text-center rgba-black-strong py-3">
+                                                                {{course1}}
+                                                            </p>
+                                                        </div>
+                                                        <div class="mask flex-center">
+                                                            <p class="text-muted h1 font-weight-bold">Click!</p>
+                                                        </div>
+                                                    </div>
+                                                </a>
                                             </div>
-                                        </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </ng-container>
+                            <ng-container *ngIf="course1Load">
+                                <div class="col-6 pt-5">
+                                    <div class="card-wrapper rounded">
+                                        <div id="card-2" class="card card-rotating text-center z-depth-1-half"
+                                            (click)="toggleRightSidebar()">
+                                            <div class="face front rounded z-depth-3">
+                                                <a class="rotate-btn" data-card="card-1">
+                                                    <div class="view overlay zoom rounded">
+                                                        <img src="../../assets/img/advancedNet.jpeg"
+                                                            class="img-fluid rounded" alt="zoom">
+                                                        <div class="position-absolute w-100" style="bottom:10%;">
+                                                            <p class="h3 white-text text-center rgba-black-strong py-3">
+                                                                {{course2}}
+                                                            </p>
+                                                        </div>
+                                                        <div class="mask flex-center">
+                                                            <p class="text-muted h1 font-weight-bold">Click!</p>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
                         </div>
-                        <ng-container *ngIf="course1Load">
-                            <div class="col-6 pt-5">
-                                <div class="card-wrapper rounded">
-                                    <div id="card-2" class="card card-rotating text-center z-depth-1-half"
-                                        (click)="toggleRightSidebar()">
-                                        <div class="face front rounded z-depth-3">
-                                            <a class="rotate-btn" data-card="card-1">
-                                                <div class="view overlay zoom rounded">
-                                                    <img src="../../assets/img/machinelearning.png"
-                                                        class="img-fluid rounded" alt="zoom">
-                                                    <div class="position-absolute w-100" style="bottom:10%;">
-                                                        <p class="h3 white-text text-center rgba-black-strong py-3">
-                                                            {{course1}}
-                                                        </p>
-                                                    </div>
-                                                    <div class="mask flex-center">
-                                                        <p class="text-muted h1 font-weight-bold">Click!</p>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </ng-container>
-                        <ng-container *ngIf="course1Load">
-                            <div class="col-6 pt-5">
-                                <div class="card-wrapper rounded">
-                                    <div id="card-2" class="card card-rotating text-center z-depth-1-half"
-                                        (click)="toggleRightSidebar()">
-                                        <div class="face front rounded z-depth-3">
-                                            <a class="rotate-btn" data-card="card-1">
-                                                <div class="view overlay zoom rounded">
-                                                    <img src="../../assets/img/advancedNet.jpeg"
-                                                        class="img-fluid rounded" alt="zoom">
-                                                    <div class="position-absolute w-100" style="bottom:10%;">
-                                                        <p class="h3 white-text text-center rgba-black-strong py-3">
-                                                            {{course2}}
-                                                        </p>
-                                                    </div>
-                                                    <div class="mask flex-center">
-                                                        <p class="text-muted h1 font-weight-bold">Click!</p>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </ng-container>
+                    </div>
+                    <div class="col-3">
                     </div>
                 </div>
-                <div class="col-3">
-                </div>
-            </div>
+            </ng-container>
         </div>
         <ng-sidebar [opened]="openedRight" position="right">
             <p> Sidebar Contents</p>
-            <button  mdbBtn color="dark" class="waves-light" mdbWavesEffect (click)="toggleRightSidebar()">Close Sidebar</button>
-            <button  mdbBtn color="dark" class="waves-light" mdbWavesEffect (click)="topicModal.show()">Add Topic</button>
+            <button mdbBtn color="dark" class="waves-light" mdbWavesEffect (click)="toggleRightSidebar()">Close
+                Sidebar</button>
+            <button mdbBtn color="dark" class="waves-light" mdbWavesEffect (click)="topicModal.show()">Add
+                Topic</button>
             <ul class="menu">
                 <ng-template ngFor let-topic [ngForOf]="topic" let-i="index">
-                    <li> <a href="#">{{topic}}</a></li>
+                    <li> <a (click)="changeTopicPath(topic)">{{topic}}</a></li>
                 </ng-template>
             </ul>
         </ng-sidebar>
@@ -148,40 +161,41 @@
         </div>
     </div>
     <div mdbModal #topicModal="mdbModal" class="modal fade left" id="frameModalTop" tabindex="-1" role="dialog"
-    aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header text-center">
-                <h4 class="modal-title w-100 font-weight-bold">Add Topic</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="topicModal.hide()">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body mx-3">
-                <form class="text-center" action="#!" #topicForm="ngForm" (ngSubmit)="onSubmitTopic(topicForm)">
-                    <div class="row">
-                        <div class="fas fa-book fa-2x"></div>
+        aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">Add Topic</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                        (click)="topicModal.hide()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body mx-3">
+                    <form class="text-center" action="#!" #topicForm="ngForm" (ngSubmit)="onSubmitTopic(topicForm)">
+                        <div class="row">
+                            <div class="fas fa-book fa-2x"></div>
 
-                        <div class="col-11">
-                            <input type="text" id="defaultRegisterFormEmail" class="form-control mb-4"
-                                placeholder="Topic 1" ngModel name="topic1">
+                            <div class="col-11">
+                                <input type="text" id="defaultRegisterFormEmail" class="form-control mb-4"
+                                    placeholder="Topic 1" ngModel name="topic1">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
+                        <div class="row">
 
-                        <div class="fas fa-book fa-2x"></div>
+                            <div class="fas fa-book fa-2x"></div>
 
-                        <div class="col-11">
-                            <input type="text" id="defaultRegisterFormEmail" class="form-control mb-4"
-                                placeholder="Topic 2" ngModel name="topic2">
+                            <div class="col-11">
+                                <input type="text" id="defaultRegisterFormEmail" class="form-control mb-4"
+                                    placeholder="Topic 2" ngModel name="topic2">
+                            </div>
                         </div>
-                    </div>
-                    <div class="modal-footer d-flex justify-content-center">
-                        <button mdbBtn color="default" class="waves-light" mdbWavesEffect
-                            (click)="topicModal.hide()">Submit</button>
-                    </div>
-                </form>
+                        <div class="modal-footer d-flex justify-content-center">
+                            <button mdbBtn color="default" class="waves-light" mdbWavesEffect
+                                (click)="topicModal.hide()">Submit</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>

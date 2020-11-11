@@ -40,7 +40,7 @@ export class AuthService {
         console.log(body)
         console.log('from auth service:');
         console.log(this.API_URL + '/api/userData')
-        return this.http.post( this.API_URL + '/api/userData', body, this.httpOptions);
+        return this.http.post( this.API_URL + '/api/userData', body, this.httpOptions)
     }
-     
+
 }

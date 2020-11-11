@@ -5,15 +5,17 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AuthComponent } from './auth/auth.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { HttpClientModule } from '@angular/common/http';
-import { LoadingSpinnerComponent } from './auth/shared/loading-spinner/loading-spinner.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { SidebarModule } from 'ng-sidebar';
 import { TestComponent } from './test/test.component';
 import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
+import { RouterModule } from '@angular/router';
+import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
+import { TicketComponent } from './ticket/ticket.component';
 
 
 @NgModule({
@@ -21,9 +23,11 @@ import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
     AppComponent,
     LandingPageComponent,
     AuthComponent,
-    LoadingSpinnerComponent,
     DashboardComponent,
     TestComponent,
+    LoadingSpinnerComponent,
+    TicketComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -34,6 +38,8 @@ import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
     DashboardModule,
     NgxYoutubePlayerModule.forRoot(),
     SidebarModule.forRoot(),
+    RouterModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
