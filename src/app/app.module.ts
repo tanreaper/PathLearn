@@ -26,7 +26,7 @@ import { TicketComponent } from './ticket/ticket.component';
     DashboardComponent,
     TestComponent,
     LoadingSpinnerComponent,
-    TicketComponent
+    TicketComponent,
     
   ],
   imports: [
@@ -39,7 +39,8 @@ import { TicketComponent } from './ticket/ticket.component';
     NgxYoutubePlayerModule.forRoot(),
     SidebarModule.forRoot(),
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,23 @@
+<div class="main-container">
+    <div class="search-bar-container">
+        <!-- <div class="field"> -->
+            <p class="control has-icons-left">
+                <input class="input" type="search" placeholder="Search">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-search"></i>
+                </span>
+            </p>
+        <!-- </div> -->
+    </div>
+    <div class="notes-list">
+        <app-flashcard 
+            *ngFor="let _card of _cards; index as i" 
+            [link] = "['/Dashboard/flashcard/details', i]"
+            (delete) = "deleteCard(i)"
+            [title]="_card.title" 
+            [body]="_card.body">
+        </app-flashcard>
+    </div>
+
+    <button mdbBtn class="floating-add-button" color="secondary" (click)="changeroute()"> +Add </button>
+</div>

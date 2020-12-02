@@ -4,6 +4,12 @@ import { SidebarModule } from 'ng-sidebar';
 import { VideoComponent } from './video/video.component';
 import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { FlashcardListComponent } from './flashcardlist/flashcardlist.component';
+import { ContentRouteComponent } from './content-route/content-route.component';
+import { FlashcardComponent } from './flashcard/flashcard.component';
+import { FlashcardDetailsComponent } from './flashcard-details/flashcard-details.component';
+import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from '../app-routing.module';
 
 
 
@@ -22,6 +28,10 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 @NgModule({
     declarations: [
         VideoComponent,
+        ContentRouteComponent,
+        FlashcardComponent,
+        FlashcardListComponent,
+        FlashcardDetailsComponent
         
     ],
     imports: [
@@ -29,6 +39,8 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
         SidebarModule.forRoot(),
         NgxYoutubePlayerModule.forRoot(),
         MDBBootstrapModule.forRoot(),
+        FormsModule,
+        AppRoutingModule
     ],
     providers: [],
 })

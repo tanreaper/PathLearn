@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DashboardService } from '../dashboard.service';
 
 @Component({
@@ -13,16 +13,18 @@ export class VideoComponent implements OnInit, OnChanges{
   isLoading: boolean = true;
   videoService: any;
   
-  constructor(private route: ActivatedRoute, private dashboardService: DashboardService) {
+  constructor(private route: ActivatedRoute, private dashboardService: DashboardService, private router: Router) {
   }
 
   ngOnInit() {
     this.route.params.subscribe(
       params => {
         this.qterm = params['id'];
+        console.log(params);
         this.getVideos();
       }
     )
+    console.log(this.router.url)
     console.log(this.qterm);
   }
   ngOnChanges(changes: SimpleChanges) {

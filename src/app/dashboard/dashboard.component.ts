@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, PRIMARY_OUTLET, Router, UrlSegment, UrlSegmentGroup, UrlTree } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { DashboardService } from './dashboard.service';
 
@@ -24,8 +24,9 @@ export class DashboardComponent implements OnInit, OnDestroy{
     postcourseService: Subscription;
     getcourseService: Subscription;
     isDashboard: boolean = true;
+    subTopic: any;
 
-    constructor(private dashboardService: DashboardService, private router: Router) {
+    constructor(private dashboardService: DashboardService, private router: Router, private route: ActivatedRoute) {
         this.isDashboard = true;
     }
 
@@ -75,8 +76,22 @@ export class DashboardComponent implements OnInit, OnDestroy{
 
     changeTopicPath(topic: any) {
         this.isDashboard = false;
-        this.router.navigate(['/Dashboard/videos', topic])
+        console.log(this.router.url);
+        const tree: UrlTree = this.router.parseUrl(this.router.url);
+        const g: UrlSegmentGroup = tree.root.children[PRIMARY_OUTLET];
+        const s: UrlSegment[] = g.segments;
+        console.log(g);
+        console.log(s);
+        this.router.navigate(['/Dashboard/videos', topic]);  
+        console.log(this.route.snapshot.url);
 
+    }
+    changeToVideo() {
+        // TODO
+    }
+    changePathToFlashcard() {
+        this.isDashboard = false;
+        this.router.navigate(['/Dashboard/flashcard'])
     }
     
 }

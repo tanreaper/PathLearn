@@ -1,6 +1,7 @@
 <div *ngIf="isLoading" style="text-align: center;">
     <!-- <app-loading-spinner></app-loading-spinner> -->
 </div>
+
 <ng-container *ngIf="!isLoading">
     <div class="row">
         <ng-template ngFor let-video [ngForOf]="videos" let-i="index">

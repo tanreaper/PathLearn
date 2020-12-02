@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthComponent } from './auth/auth.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { FlashcardDetailsComponent } from './dashboard/flashcard-details/flashcard-details.component';
+import { FlashcardListComponent } from './dashboard/flashcardlist/flashcardlist.component';
 import { VideoComponent } from './dashboard/video/video.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { TestComponent } from './test/test.component';
@@ -20,9 +22,10 @@ const routes: Routes = [
     { path: 'Register', component: AuthComponent },
     { path: 'Dashboard', component: DashboardComponent,
             children: [
-                   {
-                      path: 'videos/:id', component: VideoComponent
-                   }
+                   { path: 'videos/:id', component: VideoComponent },
+                   { path: 'flashcard', component: FlashcardListComponent },
+                   { path: 'flashcard/details', component: FlashcardDetailsComponent },
+                   { path: 'flashcard/details/:id', component: FlashcardDetailsComponent}
                ]},
     { path: 'test', component: TestComponent },
     { path: 'Ticket', component: TicketComponent}
